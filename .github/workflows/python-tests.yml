@@ -31,16 +31,16 @@ jobs:
     - name: Lint with flake8
       run: |
         # E501: line too long (設定ファイルなどで長い行を許容するため警告のみ)
-        flake8 slack_to_bookmark.py security_check.py tests/ --count --select=E9,F63,F7,F82 --show-source --statistics
-        flake8 slack_to_bookmark.py security_check.py tests/ --count --exit-zero --max-complexity=10 --max-line-length=100 --statistics
+        flake8 src/ tests/ --count --select=E9,F63,F7,F82 --show-source --statistics
+        flake8 src/ tests/ --count --exit-zero --max-complexity=10 --max-line-length=100 --statistics
     
     - name: Type check with mypy
       run: |
-        mypy --ignore-missing-imports slack_to_bookmark.py
+        mypy --ignore-missing-imports src/
     
     - name: Check formatting with Black
       run: |
-        black --check --diff slack_to_bookmark.py security_check.py tests/
+        black --check --diff src/ tests/
     
     - name: Test with pytest
       run: |

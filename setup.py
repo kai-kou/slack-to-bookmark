@@ -31,7 +31,7 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/YOUR_USERNAME/slack-to-bookmark",  # GitHubリポジトリURLに変更してください
     py_modules=["security_check"],
-    packages=find_packages(),
+    packages=find_packages(where="src"),
     package_dir={"": "src"},
     classifiers=[
         "Development Status :: 5 - Production/Stable",
@@ -57,6 +57,7 @@ setup(
             "slack-to-bookmark=src.slack_to_bookmark:main",
         ],
     },
+    include_package_data=True,
     keywords="slack, bookmark, chrome, productivity, utility",
     project_urls={
         "Bug Reports": "https://github.com/YOUR_USERNAME/slack-to-bookmark/issues",
