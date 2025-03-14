@@ -26,10 +26,10 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 # 独自モジュールをインポート
-from src.slack_client import SlackClient
-from src.bookmark_generator import BookmarkGenerator
-from src.guide_generator import GuideGenerator
-from src.data_anonymizer import DataAnonymizer
+from .slack_client import SlackClient
+from .bookmark_generator import BookmarkGenerator
+from .guide_generator import GuideGenerator
+from .data_anonymizer import DataAnonymizer
 
 # バージョン情報
 __version__ = "1.0.0"
