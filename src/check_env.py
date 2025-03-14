@@ -51,10 +51,10 @@ try:
     headers = {"Authorization": f"Bearer {final_token}"}
     response = requests.post(url, headers=headers)
     result = response.json()
-    
+
     print(f"ステータスコード: {response.status_code}")
     print(f"レスポンス: {result}")
-    
+
     if result.get("ok"):
         print("✅ 認証テスト: 成功")
         print(f"ユーザー: {result.get('user')}")
