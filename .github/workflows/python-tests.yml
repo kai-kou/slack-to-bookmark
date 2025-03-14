@@ -36,7 +36,7 @@ jobs:
     
     - name: Type check with mypy
       run: |
-        mypy --ignore-missing-imports src/
+        python run_mypy_check.py
     
     - name: Check formatting with Black
       run: |

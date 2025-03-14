@@ -22,7 +22,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name="slack-to-bookmark",
+    name="slack_to_bookmark",
     version=about["__version__"],
     author="Slack-to-Bookmark Authors",
     author_email="your.email@example.com",  # メールアドレスは適宜変更してください
@@ -54,7 +54,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "slack-to-bookmark=src.slack_to_bookmark:main",
+            "slack-to-bookmark=src.slack_to_bookmark:main",  # コマンド名はハイフン付きで維持（使いやすさのため）
         ],
     },
     include_package_data=True,
