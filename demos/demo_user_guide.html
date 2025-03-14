@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Slackユーザー DMブックマークインポート手順</title>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        h1 { color: #1264A3; }
+        .steps { background: #f5f5f5; padding: 15px; border-radius: 5px; }
+        .step { margin: 10px 0; }
+        .file-path { background: #eee; padding: 5px; font-family: monospace; word-break: break-all; border-radius: 3px; }
+        .note { background: #fffde7; padding: 10px; margin-top: 20px; border-radius: 5px; }
+        button { background: #1264A3; color: white; border: none; padding: 8px 16px; 
+                 margin-top: 20px; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #0b4f85; }
+    </style>
+</head>
+<body>
+    <h1>Slackユーザー DMブックマークインポート手順</h1>
+    
+    <div class="steps">
+        <div class="step">1. Chromeでブックマークマネージャーを開く: <strong>Cmd+Option+B</strong></div>
+        <div class="step">2. 右上の「...」をクリックし、「ブックマークをインポート」を選択</div>
+        <div class="step">3. 「HTMLファイルから」を選択し、ファイルを選択する</div>
+        <div class="step">4. 以下のファイルを選択:</div>
+        <div class="file-path">slack_user_dms.html</div>
+        <div class="step">5. 「開く」をクリックしてインポート</div>
+    </div>
+    
+    <div class="note">
+        <p><strong>注意:</strong> インポート後、「Slack Users」フォルダにユーザーDMのブックマークが追加されます。</p>
+        <p>インポートに問題がある場合は、一度Chromeを再起動してから再度インポートを試みてください。</p>
+    </div>
+    
+    <button onclick="window.open('chrome://bookmarks/')">ブックマークマネージャーを開く</button>
+</body>
+</html>

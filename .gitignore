@@ -1,0 +1,55 @@
+# Environment variables
+.env
+.env.*
+!.env.sample
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environment
+venv/
+ENV/
+
+# Generated files
+slack_*.html
+bookmark_guide*.html
+all_channel_guide.html
+user_dm_guide.html
+public_channel_guide.html
+anonymizer_mappings.json
+# 以下は特定のファイル名が変わっても対応できるようにワイルドカードパターンを採用
+# - slack_bookmarks.html
+# - slack_public_bookmarks.html
+# - slack_user_dms.html
+# - bookmark_guide.html
+# - bookmark_guide_public.html
+# - bookmark_guide_users.html
+
+# Demo files
+/demo_*.html
+/demo_*.py
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo

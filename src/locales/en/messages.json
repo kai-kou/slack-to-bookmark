@@ -1,0 +1,54 @@
+{
+  "app_name": "Slack to Bookmark",
+  "app_description": "A tool to convert Slack channels and DMs to Chrome bookmarks for easier access",
+  
+  "error_messages": {
+    "no_token": "SLACK_TOKEN environment variable is not set.",
+    "not_allowed_token_type": "The token doesn't have the necessary permissions. Make sure you're using a User token (starting with xoxp-). Bot tokens (xoxb-) will not work.",
+    "invalid_auth": "Authentication failed. Please check that your token is valid and hasn't expired.",
+    "missing_scope": "The token doesn't have the required scopes.",
+    "api_error": "An API error occurred."
+  },
+  
+  "log_messages": {
+    "initialized": "SlackClient initialized for workspace: {workspace}",
+    "users_retrieved": "Retrieved {count} users",
+    "public_channels_retrieved": "Retrieved {count} public channels",
+    "private_channels_retrieved": "Retrieved {count} private channels",
+    "all_channels_retrieved": "Retrieved a total of {count} channels",
+    "bookmark_generated": "Bookmark file generated: {filename}",
+    "user_dm_bookmark_generated": "User DM bookmark file generated: {filename}",
+    "guide_generated": "Guide page generated: {filename}",
+    "browser_opened": "Opened guide page in browser",
+    "bookmark_manager_opened": "Opened bookmark manager",
+    "process_complete": "Process completed. Follow the instructions in the guide page to import bookmarks."
+  },
+  
+  "cli_options": {
+    "channels_help": "Specify comma-separated channel names to include only specific channels (e.g., 'general,random,project-a')",
+    "public_only_help": "Include only public channels in bookmarks",
+    "no_dm_help": "Don't generate user DM bookmarks",
+    "version_help": "Show version information"
+  },
+  
+  "guide": {
+    "title": "Slack Channel Bookmark Import Guide",
+    "title_public": "Slack Public Channel Bookmark Import Guide",
+    "title_users": "Slack User DM Bookmark Import Guide",
+    "note": "After importing, all channels will be added to the 'Slack' folder.",
+    "note_users": "After importing, user DMs will be added to the 'Slack Users' folder.",
+    "step1": "Open Chrome bookmark manager: ",
+    "step2": "Click the '...' in the top right and select 'Import bookmarks'",
+    "step3": "Select 'From HTML file' and choose a file",
+    "step4": "Select the following file:",
+    "step5": "Click 'Open' to import",
+    "note_title": "Note:",
+    "import_error": "If you have issues with importing, try restarting Chrome and importing again.",
+    "open_bookmark_manager": "Open Bookmark Manager"
+  },
+  
+  "channel_types": {
+    "public": "Public",
+    "private": "Private"
+  }
+}

@@ -1,0 +1,265 @@
+# Slack-to-Bookmark プロジェクト Clineルールファイル
+# このファイルはClineがタスクを実行する際に常に参照するルール定義です
+
+# ===== プロジェクト情報 =====
+project_info:
+  name: "slack-to-bookmark"
+  description: "SlackチャンネルやDMをChromeブックマークに変換するツール"
+  version: "1.0.0"
+  maintainer: "プロジェクト管理者"
+  repository: "まだ設定されていません (初期コミット前)"
+
+# ===== Git状態 =====
+git_status:
+  initialized: true
+  branch: "main"
+  remote: "未設定"
+  current_state: "初期状態 (コミットなし)"
+  last_reset: "2025/3/14"
+
+# ===== 開発ルール =====
+development_rules:
+  # 環境設定
+  environment:
+    python_version: "3.6+"
+    required_packages: 
+      - slack_sdk
+      - python-dotenv
+    setup_commands:
+      - "pip install -r requirements.txt"
+    
+  # コーディング規約
+  coding_style:
+    indentation: 4  # Pythonの標準インデント
+    max_line_length: 100
+    docstring_style: "Googleスタイル"  # 既存コードに合わせたスタイル
+    naming_conventions:
+      classes: "UpperCamelCase"
+      functions: "snake_case"
+      variables: "snake_case"
+      constants: "UPPER_SNAKE_CASE"
+    
+  # ファイル構成
+  file_structure:
+    main_script: "slack_to_bookmark.py"
+    config_files:
+      - ".env.sample"
+      - ".env (git管理外)"
+    output_files:
+      - "slack_bookmarks.html"
+      - "slack_public_bookmarks.html"
+      - "slack_user_dms.html"
+      - "bookmark_guide.html"
+      - "bookmark_guide_public.html"
+      - "bookmark_guide_users.html"
+    
+  # 依存関係管理
+  dependencies:
+    management: "requirements.txt"
+    pin_versions: true  # バージョンを明示的に指定
+    minimize_dependencies: true  # 必要最小限の依存関係のみ使用
+
+# ===== セキュリティルール =====
+security_rules:
+  # 機密情報管理
+  sensitive_data:
+    env_variables:
+      - name: "SLACK_TOKEN"
+        description: "Slack API トークン"
+        required: true
+        store_in: ".env (git管理外)"
+      - name: "WORKSPACE_NAME"
+        description: "Slackワークスペース名"
+        required: true
+        store_in: ".env (git管理外)"
+      - name: "WORKSPACE_ID"
+        description: "SlackワークスペースID"
+        required: true
+        store_in: ".env (git管理外)"
+    
+  # パブリックリポジトリでの安全な共有
+  public_repository:
+    gitignore_required:
+      - ".env"  # 実際の環境変数ファイルは共有しない
+      - "*.html"  # 生成されたブックマークファイル（個人情報を含む可能性がある）
+    sample_files:
+      - ".env.sample"  # ダミー値を使用するサンプルファイル
+    commit_checks:
+      - "トークンやAPIキーなどの機密情報が含まれていないことを確認"
+      - "個人情報や組織固有の情報が含まれていないことを確認"
+      - "生成ファイルが誤ってコミットされていないことを確認"
+    
+  # エラー処理とロギング
+  error_handling:
+    log_level: "INFO"  # 通常運用時のログレベル
+    critical_errors:
+      - "API認証エラー"
+      - "環境変数未設定エラー"
+    error_messages:
+      language: "日本語"
+      user_friendly: true  # ユーザーが理解しやすいメッセージ
+      include_solutions: true  # 解決策を含める
+
+# ===== ワークフロールール =====
+workflow_rules:
+  # 計画プロセス
+  planning_process:
+    require_approval: true  # タスク開始前に計画の承認を必須とする
+    plan_elements:
+      - "実行するタスクの詳細説明"
+      - "影響を受けるファイルのリスト"
+      - "セキュリティ上の考慮事項"
+      - "実装手順のステップバイステップ"
+    planning_language: "日本語"
+  
+  # 操作者確認ポイント
+  user_interaction:
+    require_confirmation:
+      - "APIトークンの変更や追加"
+      - "既存ファイルの大幅な変更"
+      - "新しい依存関係の追加"
+      - "コードアーキテクチャの変更"
+      - "新機能の実装開始前"
+    auto_approve:
+      - "コードフォーマットの修正"
+      - "ドキュメントの更新"
+      - "変数名の改善"
+      - "コメントの追加"
+    confirmation_format: "明確で簡潔な質問で操作者の確認を得ること"
+  
+  # タスク完了プロセス
+  completion_process:
+    require_user_confirmation: true  # 操作者の確認を得てからタスク完了
+    completion_report:
+      - "実行したタスクの要約"
+      - "変更したファイルのリスト"
+      - "変更内容の詳細"
+      - "テスト結果（該当する場合）"
+    follow_up: "タスク完了後の次のステップや推奨事項を提示"
+
+# ===== コミュニケーションルール =====
+communication_rules:
+  # 言語設定
+  language:
+    primary: "日本語"  # すべてのコミュニケーションは日本語で行う
+    code_comments: "日本語"  # コードコメントも日本語
+    variable_names: "英語"  # 変数名は英語（Pythonの慣習）
+  
+  # コミュニケーションスタイル
+  style:
+    tone: "プロフェッショナル"
+    clarity: "簡潔かつ明確"
+    format: "構造化された回答"
+  
+  # ドキュメント
+  documentation:
+    code_comments:
+      required: true
+      style: "Googleスタイル"
+    readme:
+      required: true
+      sections:
+        - "プロジェクト概要"
+        - "機能"
+        - "ファイル構成"
+        - "必要環境"
+        - "セットアップ"
+        - "使用方法"
+        - "セキュリティ注意事項"
+    user_guides:
+      required: true
+      location: "docs/ディレクトリ"
+
+# ===== 品質ルール =====
+quality_rules:
+  # コード品質
+  code_quality:
+    clean_code:
+      - "DRY (Don't Repeat Yourself) 原則の遵守"
+      - "単一責任の原則に基づくクラス設計"
+      - "適切な変数・関数の命名"
+      - "コメントよりも自己説明的なコード"
+    refactoring:
+      when:
+        - "重複コードが発生した場合"
+        - "機能追加が困難になった場合"
+        - "パフォーマンス問題が発生した場合"
+      approach: "小さな変更を段階的に適用し、各ステップで動作確認"
+  
+  # テスト要件
+  testing:
+    required: true
+    types:
+      - "ユニットテスト (関数・クラス単位)"
+      - "統合テスト (コンポーネント間連携)"
+      - "エッジケーステスト (異常系)"
+    coverage:
+      minimum: 80
+    documentation: "docs/testing_guide.md"
+
+# ===== Cline固有のルール =====
+cline_rules:
+  # タスク開始前の確認
+  pre_task_check:
+    confirm_rules: true  # このルールファイルの確認を必須とする
+    required_context:
+      - "プロジェクトの現状理解"
+      - "タスクの目標明確化"
+      - "潜在的な影響範囲の把握"
+  
+  # Clineの動作モード
+  operation_mode:
+    planning:
+      required: true
+      language: "日本語"
+      approval_needed: true
+    execution:
+      step_by_step: true  # 段階的に実行
+      confirmation_points: "security_rules.user_interaction.require_confirmation に従う"
+    completion:
+      user_approval: true
+      summary_language: "日本語"
+  
+  # Clineの応答スタイル
+  response_style:
+    format: "構造化"
+    language: "日本語"
+    code_blocks: "適切な言語指定付き"
+    error_reporting: "詳細かつ解決策付き"
+
+# ===== プロジェクト固有のルール =====
+project_specific_rules:
+  # Slack API関連
+  slack_api:
+    token_type: "User token (xoxp)"  # Bot tokenではなくUser tokenが必要
+    required_scopes:
+      - "channels:read"
+      - "groups:read"
+      - "users:read"
+    api_rate_limits:
+      respect: true
+      implement_throttling: true
+  
+  # ブックマーク生成関連
+  bookmark_generation:
+    format: "Netscape Bookmark File Format"
+    charset: "UTF-8"
+    sorting:
+      channels: "アルファベット順"
+      users: "アルファベット順"
+    file_naming:
+      consistent: true
+      descriptive: true
+  
+  # ユーザーインターフェース
+  user_interface:
+    guide_pages:
+      responsive: true
+      platform_specific:
+        - "Windows用ショートカット"
+        - "Mac用ショートカット"
+      user_friendly: true
+    error_messages:
+      clear: true
+      actionable: true
+      language: "日本語"

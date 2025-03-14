@@ -1,0 +1,54 @@
+{
+  "app_name": "Slack to Bookmark",
+  "app_description": "SlackチャンネルやDMをChromeブックマークに変換し、より簡単にアクセスできるようにするツール",
+  
+  "error_messages": {
+    "no_token": "SLACK_TOKEN環境変数が設定されていません。",
+    "not_allowed_token_type": "トークンに必要な権限がありません。User token (xoxp-で始まる) を使用していることを確認してください。Bot token (xoxb-) では動作しません。",
+    "invalid_auth": "認証に失敗しました。トークンが有効で期限切れでないことを確認してください。",
+    "missing_scope": "トークンに必要なスコープがありません。",
+    "api_error": "APIエラーが発生しました。"
+  },
+  
+  "log_messages": {
+    "initialized": "SlackClient initialized for workspace: {workspace}",
+    "users_retrieved": "{count}人のユーザーを取得しました",
+    "public_channels_retrieved": "{count}個の公開チャンネルを取得しました",
+    "private_channels_retrieved": "{count}個のプライベートチャンネルを取得しました",
+    "all_channels_retrieved": "合計 {count} チャンネルを取得しました",
+    "bookmark_generated": "ブックマークファイルを生成しました: {filename}",
+    "user_dm_bookmark_generated": "ユーザーDMのブックマークファイルを生成しました: {filename}",
+    "guide_generated": "ガイドページを生成しました: {filename}",
+    "browser_opened": "ブラウザでガイドページを開きました",
+    "bookmark_manager_opened": "ブックマークマネージャーを開きました",
+    "process_complete": "処理が完了しました。ガイドページの手順に従ってインポートしてください。"
+  },
+  
+  "cli_options": {
+    "channels_help": "特定のチャンネルのみをブックマークに含める場合、カンマ区切りでチャンネル名を指定（例: 'general,random,project-a'）",
+    "public_only_help": "公開チャンネルのみをブックマークに含める",
+    "no_dm_help": "ユーザーDMブックマークを生成しない",
+    "version_help": "バージョン情報を表示"
+  },
+  
+  "guide": {
+    "title": "Slackチャンネル ブックマークインポート手順",
+    "title_public": "Slackパブリックチャンネル ブックマークインポート手順",
+    "title_users": "Slackユーザー DMブックマークインポート手順",
+    "note": "インポート後、「Slack」フォルダに全チャンネルが追加されます。",
+    "note_users": "インポート後、「Slack Users」フォルダにユーザーDMのブックマークが追加されます。",
+    "step1": "Chromeでブックマークマネージャーを開く: ",
+    "step2": "右上の「...」をクリックし、「ブックマークをインポート」を選択",
+    "step3": "「HTMLファイルから」を選択し、ファイルを選択する",
+    "step4": "以下のファイルを選択:",
+    "step5": "「開く」をクリックしてインポート",
+    "note_title": "注意:",
+    "import_error": "インポートに問題がある場合は、一度Chromeを再起動してから再度インポートを試みてください。",
+    "open_bookmark_manager": "ブックマークマネージャーを開く"
+  },
+  
+  "channel_types": {
+    "public": "公開",
+    "private": "プライベート"
+  }
+}
